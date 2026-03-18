@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Yanina Trekhleb — Email Developer & CRM Specialist. The one who checks it all before it ships.">
+  <meta property="og:title" content="Yanina Trekhleb | Email Developer & CRM Specialist">
+  <meta property="og:description" content="The one who checks it all before it ships. Email Developer & CRM Specialist based in the Bay Area.">
+  <meta property="og:type" content="website">
+  <title>Yanina Trekhleb | Email Developer & CRM Specialist</title>
+  <meta property="og:url" content="https://yaninatrekhleb.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✉</text></svg>">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSJL77SQ5T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QSJL77SQ5T');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f3f0ee;
+      --bg-card: #faf8f7;
+      --border: #dbd5d0;
+      --border-light: #e8e3df;
+      --text: #2c2926;
+      --text-secondary: #56504b;
+      --text-muted: #908783;
+      --accent: #7b8794;
+      --accent-warm: #b8a09a;
+      --accent-pale: rgba(123,135,148,0.08);
+      --accent-warm-pale: rgba(184,160,154,0.08);
+      --gradient: linear-gradient(135deg, #b8a09a, #7b8794);
+      --gradient-soft: linear-gradient(135deg, rgba(184,160,154,0.07), rgba(123,135,148,0.07));
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Geist', -apple-system, sans-serif;
+      --ease: cubic-bezier(0.25, 1, 0.5, 1);
+      --radius: 14px;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before, body::after {
+      content: '';
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(90px);
+      z-index: -1;
+      pointer-events: none;
+      animation: float 24s ease-in-out infinite;
+    }
+    body::before {
+      width: 480px; height: 480px;
+      top: -100px; right: -60px;
+      background: radial-gradient(circle, rgba(184,160,154,0.1), transparent 70%);
+    }
+    body::after {
+      width: 420px; height: 420px;
+      bottom: -60px; left: -40px;
+      background: radial-gradient(circle, rgba(123,135,148,0.08), transparent 70%);
+      animation-delay: -12s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(20px, -15px) scale(1.03); }
+      66% { transform: translate(-15px, 10px) scale(0.97); }
+    }
+
+    .container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(243,240,238,0.92);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    }
+    .nav-inner {
+      max-width: 720px; margin: 0 auto; padding: 20px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--font-display); font-size: 22px;
+      color: var(--text); text-decoration: none;
+      transition: opacity 0.3s;
+    }
+    .nav-logo:hover { opacity: 0.7; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a {
+      font-size: 14px; color: var(--text-muted); text-decoration: none;
+      font-weight: 400; transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--accent-warm); }
+
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+    .nav-toggle span {
+      display: block; width: 24px; height: 1.5px;
+      background: var(--text); margin: 6px 0; transition: 0.3s var(--ease);
+    }
+
+    .hero {
+      padding: 120px 0 80px;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-name {
+      font-family: var(--font-display); font-size: 46px; line-height: 1.15;
+      margin-bottom: 32px; letter-spacing: -0.01em;
+    }
+
+    .about-block {
+      display: flex; gap: 40px; align-items: center;
+      padding: 56px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-photo {
+      width: 180px; height: 220px; flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(44,41,38,0.06);
+    }
+    .about-text {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85; font-weight: 300;
+    }
+    .about-text em { font-family: var(--font-display); color: var(--text); font-style: normal; font-size: 17px; }
+    .hero-name .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-intro {
+      font-size: 17px; color: var(--text-secondary); line-height: 1.8; font-weight: 300;
+      max-width: 520px;
+    }
+    .hero-intro strong { color: var(--text); font-weight: 500; }
+    .hero-intro em { color: var(--text); font-style: normal; font-weight: 400; }
+
+    .hero-meta {
+      display: flex; gap: 24px; margin-top: 32px;
+      font-size: 13px; color: var(--text-muted); font-weight: 400;
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+    .hero-meta .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gradient);
+    }
+
+    .section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+    .section:last-of-type { border-bottom: none; }
+    .section-title {
+      font-size: 12px; font-weight: 500;
+      color: var(--text-muted); text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 40px;
+    }
+
+    .exp-item {
+      display: grid; grid-template-columns: 160px 1fr;
+      gap: 24px; margin-bottom: 48px; align-items: start;
+      padding-left: 20px;
+      border-left: 2px solid var(--border-light);
+      transition: border-color 0.4s var(--ease), transform 0.4s var(--ease);
+    }
+    .exp-item:hover {
+      border-left-color: var(--accent-warm);
+      transform: translateX(4px);
+    }
+    .exp-item:last-child { margin-bottom: 0; }
+
+    .exp-item:nth-child(2) { transition-delay: 0.08s; }
+    .exp-item:nth-child(3) { transition-delay: 0.16s; }
+    .exp-item:nth-child(4) { transition-delay: 0.24s; }
+
+    .exp-date { font-size: 13px; color: var(--text-muted); font-weight: 400; }
+    .exp-company-name { font-size: 13px; color: var(--text-muted); margin-top: 4px; }
+    .exp-location { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+    .exp-role {
+      font-family: var(--font-display); font-size: 21px; line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .exp-desc { font-size: 15px; color: var(--text-secondary); line-height: 1.75; font-weight: 300; }
+    .exp-desc strong { color: var(--text); font-weight: 500; }
+    .exp-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .exp-tag {
+      font-size: 11px; color: var(--accent); font-weight: 500;
+      padding: 4px 12px; border-radius: 4px;
+      background: var(--accent-pale);
+      border: 1px solid rgba(123,135,148,0.1);
+    }
+    .tools { font-size: 12px; color: var(--text-muted); margin-top: 12px; font-weight: 300; }
+
+    /* Desktop: horizontal scroll */
+    .testimonials-scroll {
+      display: flex; gap: 16px; overflow-x: auto;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      padding-bottom: 16px;
+      scrollbar-width: thin; scrollbar-color: var(--border) transparent;
+    }
+    .testimonials-scroll::-webkit-scrollbar { height: 4px; }
+    .testimonials-scroll::-webkit-scrollbar-track { background: transparent; }
+    .testimonials-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+    .testimonial-card {
+      min-width: 320px; max-width: 320px;
+      padding: 28px; scroll-snap-align: start;
+      display: flex; flex-direction: column;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      transition: all 0.4s var(--ease);
+    }
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(44,41,38,0.06);
+      border-color: var(--accent-warm);
+    }
+    .testimonial-card .quote-mark {
+      font-family: var(--font-display); font-size: 40px; line-height: 1;
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .testimonial-card .quote {
+      font-size: 15px;
+      color: var(--text-secondary); line-height: 1.7;
+      margin: 12px 0 20px; flex-grow: 1; font-weight: 300;
+    }
+    .testimonial-card .author {
+      font-size: 13px; color: var(--text-muted); font-weight: 400;
+      border-top: 1px solid var(--border-light); padding-top: 14px;
+    }
+    .testimonial-card .author strong {
+      color: var(--text-secondary); font-weight: 500; display: block; margin-bottom: 2px;
+    }
+
+    /* Mobile carousel */
+    .carousel-dots { display: none; }
+    .carousel-dot {
+      width: 8px; height: 8px; border-radius: 50%; border: none;
+      background: var(--border); cursor: pointer; padding: 0;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .carousel-dot.active { background: var(--accent-warm); transform: scale(1.3); }
+    .carousel-dot:hover:not(.active) { background: var(--accent); }
+
+    .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .project-card {
+      padding: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius);
+      text-decoration: none; color: inherit;
+      transition: all 0.4s var(--ease);
+      display: flex; flex-direction: column;
+      position: relative; overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient);
+      opacity: 0; transition: opacity 0.4s;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 32px rgba(44,41,38,0.07);
+      border-color: var(--accent-warm);
+    }
+    .project-card:hover::before { opacity: 1; }
+
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 14px; }
+    .project-number {
+      font-family: var(--font-display); font-size: 32px; line-height: 1;
+      color: var(--border);
+      transition: color 0.3s var(--ease);
+    }
+    .project-card:hover .project-number { color: var(--accent-warm); }
+    .project-arrow {
+      font-size: 18px; color: var(--accent);
+      opacity: 0; transform: translate(-6px, 6px);
+      transition: all 0.3s var(--ease);
+    }
+    .project-card:hover .project-arrow { opacity: 1; transform: translate(0, 0); }
+
+    .project-name {
+      font-family: var(--font-display); font-size: 19px;
+      margin-bottom: 8px; line-height: 1.3;
+    }
+    .project-desc {
+      font-size: 14px; color: var(--text-secondary); line-height: 1.65;
+      font-weight: 300; flex-grow: 1; margin-bottom: 16px;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; }
+    .project-tag {
+      font-size: 11px; color: var(--text-muted); padding: 3px 10px;
+      border-radius: 4px; background: var(--bg); border: 1px solid var(--border-light);
+    }
+
+    .aside-text {
+      font-size: 16px; color: var(--text-secondary); line-height: 1.85; font-weight: 300;
+    }
+    .aside-text em { font-family: var(--font-display); color: var(--text); font-style: normal; font-size: 17px; font-weight: 400; }
+    .aside-text a {
+      color: #8a6e66; text-decoration: none;
+      border-bottom: 1px solid rgba(138,110,102,0.4);
+      transition: border-color 0.3s;
+    }
+    .aside-text a:hover { border-color: #8a6e66; }
+
+    .contact-section { padding: 80px 0; text-align: center; }
+    .contact-heading {
+      font-family: var(--font-display); font-size: 40px; margin-bottom: 20px;
+    }
+    .contact-heading .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .contact-text {
+      font-size: 16px; color: var(--text-secondary); font-weight: 300;
+      max-width: 420px; margin: 0 auto 36px; line-height: 1.7;
+    }
+    .contact-email {
+      display: block; font-size: 15px; color: var(--text-muted);
+      text-decoration: none; margin-bottom: 24px; letter-spacing: 0.02em;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--gradient); color: white;
+      padding: 15px 40px; border-radius: 50px; text-decoration: none;
+      font-size: 15px; font-weight: 500; transition: all 0.3s var(--ease);
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(184,160,154,0.25); }
+
+    .footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.3s; }
+    .footer-links a:hover { color: var(--accent-warm); }
+    .footer-note { font-size: 13px; color: var(--text-muted); font-weight: 300; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 768px) {
+      .hero-name { font-size: 36px; }
+      .hero-intro { max-width: 100%; }
+      .about-block { flex-direction: column; text-align: center; gap: 24px; }
+      .about-photo { width: 150px; height: 190px; }
+      .exp-item { grid-template-columns: 1fr; gap: 8px; padding-left: 16px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; gap: 12px; text-align: center; }
+      .testimonial-card { min-width: 280px; max-width: 280px; }
+      .contact-heading { font-size: 34px; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column; position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: rgba(243,240,238,0.98); backdrop-filter: blur(16px);
+        padding: 24px; gap: 20px;
+        border-bottom: 1px solid var(--border-light);
+      }
+      .nav-toggle { display: block; }
+      .nav-toggle.active span:nth-child(1) { transform: translateY(7.5px) rotate(45deg); }
+      .nav-toggle.active span:nth-child(2) { opacity: 0; }
+      .nav-toggle.active span:nth-child(3) { transform: translateY(-7.5px) rotate(-45deg); }
+      .hero { padding: 64px 0 40px; }
+      .hero-name { font-size: 28px; }
+      .about-photo { width: 120px; height: 150px; }
+      .hero-intro { font-size: 15px; }
+      .hero-meta { flex-direction: column; gap: 8px; }
+      .section { padding: 56px 0; }
+      .exp-item { padding-left: 14px; margin-bottom: 36px; }
+      .exp-item:hover { transform: none; }
+      .exp-role { font-size: 18px; }
+      .exp-desc { font-size: 14px; }
+      .testimonials-scroll {
+        overflow: hidden; gap: 0; scroll-snap-type: none;
+        position: relative;
+        transition: transform 0.4s var(--ease);
+      }
+      .testimonial-card {
+        min-width: 100%; max-width: 100%; padding: 22px;
+        flex-shrink: 0;
+      }
+      .testimonial-card .quote { font-size: 14px; }
+      .testimonial-card:hover { transform: none; box-shadow: none; }
+      .carousel-dots { display: flex; justify-content: center; gap: 10px; padding-top: 16px; }
+      .project-card { padding: 22px; }
+      .project-number { font-size: 26px; }
+      .project-name { font-size: 17px; }
+      .contact-heading { font-size: 28px; }
+      .contact-text { font-size: 14px; }
+      .contact-section { padding: 56px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">Yanina Trekhleb</a>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#work">Work</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Say hi</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <section class="hero reveal">
+      <h1 class="hero-name">The one who checks it all<br><span class="gradient-text">before it sends.</span></h1>
+      <p class="hero-intro">
+        I'm Yanina — a <em>Marketing Automation &amp; CRM specialist</em> recently relocated from the Netherlands to the Bay Area. I build email campaigns, chase down broken links, test every template across Outlook, Gmail, and everything in between, and catch the one pixel that's off before anyone else notices. I've spent 3+ years and <em>3,000+ emails shipped</em> making sure that when a brand hits send, everything works.
+      </p>
+      <div class="hero-meta">
+        <span><span class="dot"></span> Sunnyvale, CA</span>
+        <span><span class="dot"></span> Open to hybrid &amp; remote</span>
+        <span><span class="dot"></span> 3+ years experience</span>
+      </div>
+    </section>
+
+    <section class="about-block reveal">
+      <img src="yanina_trekhleb.png" alt="Yanina Trekhleb" class="about-photo">
+      <p class="about-text">
+        I care about the details most people skip — the rendering in Outlook, the broken link no one tested, the spacing that's 2px off. I've worked with brands like <em>Patagonia</em>, <em>Odido</em>, and <em>Albert Heijn</em>, building campaigns that actually work across every client and device.
+      </p>
+    </section>
+
+    <section id="work" class="section">
+      <h2 class="section-title reveal">Where I've worked</h2>
+      <div class="exp-item reveal">
+        <div class="exp-side">
+          <div class="exp-date">Mar 2023 – Mar 2025</div>
+          <div class="exp-company-name">Merkle (Dentsu)</div>
+          <div class="exp-location">Rotterdam, Netherlands</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-role">Front-End Campaign Developer</div>
+          <div class="exp-desc">Built responsive email templates and landing pages for brands like Patagonia, Odido, and Albert Heijn. Managed automated workflows in Selligent and Klaviyo.</div>
+          <div class="tools">Selligent · Klaviyo · Acoustic · Tripolis · Litmus · HTML/CSS</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-side">
+          <div class="exp-date">May 2022 – Nov 2022</div>
+          <div class="exp-company-name">The Valley</div>
+          <div class="exp-location">Amsterdam, Netherlands</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-role">Campaign Developer</div>
+          <div class="exp-desc">Hand-coded responsive email templates and built reusable content block libraries that made the whole team's workflow faster. Ran thorough cross-client testing to catch formatting issues before send.</div>
+          <div class="tools">HTML/CSS · Litmus · Responsive design</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-side">
+          <div class="exp-date">Apr 2021 – Jun 2022</div>
+          <div class="exp-company-name">Kubermatic</div>
+          <div class="exp-location">Amsterdam, Netherlands</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-role">Website Publisher</div>
+          <div class="exp-desc">Published and optimized marketing content through CMS and GitHub using SEO best practices.</div>
+          <div class="tools">CMS · GitHub · SEO · Technical editing</div>
+        </div>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-side">
+          <div class="exp-date">2013 – 2017</div>
+          <div class="exp-company-name">Lviv Polytechnic National University</div>
+          <div class="exp-location">Ukraine</div>
+        </div>
+        <div class="exp-main">
+          <div class="exp-role">Education</div>
+          <div class="exp-desc">Master of Science in Marketing · Bachelor of Science in Marketing</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">Endorsements</h2>
+      <div class="testimonials-scroll">
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="quote">Her work is precise and efficient. She follows briefs perfectly, provides valuable inputs for improvements, and if she spots potential mistakes, she communicates them and offers a solution. Thanks to her contribution we keep a smooth production process — even through very tight deadlines.</div>
+          <div class="author"><strong>Client</strong> · via Merkle (Dentsu)</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="quote">An incredible colleague and a key asset to our team. Highly skilled and structured, with technical proficiency matched by an eagerness to learn and quickly grasp new technologies and concepts.</div>
+          <div class="author"><strong>Senior Campaign Engineer</strong> · Merkle (Dentsu)</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="quote">Even in stressful situations, she maintained control and helped the team meet our deadlines on time. If you are looking for someone with thorough knowledge of email HTML, I highly recommend her.</div>
+          <div class="author"><strong>Campaign Engineer</strong> · Merkle (Dentsu)</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <div class="quote">She approaches every task with care and precision, and her positive attitude makes collaboration a joy. Her ability to stay sharp and keep those around her focused is truly valuable.</div>
+          <div class="author"><strong>Marketing &amp; Communications</strong> · Merkle (Dentsu)</div>
+        </div>
+      </div>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" aria-label="Slide 1"></button>
+        <button class="carousel-dot" aria-label="Slide 2"></button>
+        <button class="carousel-dot" aria-label="Slide 3"></button>
+        <button class="carousel-dot" aria-label="Slide 4"></button>
+      </div>
+    </section>
+
+    <section id="projects" class="section reveal">
+      <h2 class="section-title">Things I've recently built</h2>
+      <div class="projects-grid">
+        <a class="project-card" href="https://dont-touch-it-app.vercel.app/" target="_blank" rel="noopener">
+          <div class="project-header">
+            <div class="project-number">1</div>
+            <div class="project-arrow">&nearr;</div>
+          </div>
+          <h3 class="project-name">Don't Touch It!</h3>
+          <p class="project-desc">An AI-powered app that looks at what's in your fridge and suggests recipes. Built the whole thing — API integration, billing, the works.</p>
+          <div class="project-tags">
+            <span class="project-tag">Next.js</span>
+            <span class="project-tag">Supabase</span>
+            <span class="project-tag">Claude Vision API</span>
+            <span class="project-tag">Stripe</span>
+          </div>
+        </a>
+        <a class="project-card" href="https://yaninatrekhleb.github.io/30days_of_Emails/" target="_blank" rel="noopener">
+          <div class="project-header">
+            <div class="project-number">2</div>
+            <div class="project-arrow">&nearr;</div>
+          </div>
+          <h3 class="project-name">30-Day Email Template Series</h3>
+          <p class="project-desc">A personal challenge: one email template per day for 30 days. Responsive HTML/CSS, tested across clients, designed from scratch. The closest thing to my actual day job — but on my own terms.</p>
+          <div class="project-tags">
+            <span class="project-tag">HTML/CSS</span>
+            <span class="project-tag">Email design</span>
+            <span class="project-tag">Responsive</span>
+            <span class="project-tag">Cross-client testing</span>
+          </div>
+        </a>
+        <a class="project-card" href="https://yaninatrekhleb.github.io/flour-hour/" target="_blank" rel="noopener">
+          <div class="project-header">
+            <div class="project-number">3</div>
+            <div class="project-arrow">&nearr;</div>
+          </div>
+          <h3 class="project-name">Flour Hour</h3>
+          <p class="project-desc">A sourdough scheduling tool. Tell it when your bread should be done, it calculates every step backward.</p>
+          <div class="project-tags">
+            <span class="project-tag">React</span>
+            <span class="project-tag">PWA</span>
+          </div>
+        </a>
+        <a class="project-card" href="https://yaninatrekhleb.github.io/motivation-station/" target="_blank" rel="noopener">
+          <div class="project-header">
+            <div class="project-number">4</div>
+            <div class="project-arrow">&nearr;</div>
+          </div>
+          <h3 class="project-name">Motivation Station</h3>
+          <p class="project-desc">Built this during my own job search. Daily motivational prompts — because sometimes you just need a nudge to keep going.</p>
+          <div class="project-tags">
+            <span class="project-tag">React 19</span>
+            <span class="project-tag">PWA</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section reveal">
+      <h2 class="section-title">Outside of work</h2>
+      <div class="aside-text">
+        I run <em><a href="https://www.instagram.com/yaninaskitchen/" target="_blank" rel="noopener">Yanina's Kitchen</a></em> — a food content brand across Instagram, TikTok, and YouTube, focused on Ukrainian recipes and home caf&eacute; vibes. I also produce ambient art videos on <em><a href="https://www.youtube.com/@ArtFrame_Moments/featured" target="_blank" rel="noopener">ArtFrame Moments</a></em>. Running these taught me more about audience, consistency, and brand voice than any course could — and it keeps me close to the creator side of marketing.
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal">
+      <h2 class="contact-heading">Let's build <span class="gradient-text">together.</span></h2>
+      <p class="contact-text">
+        I'm currently looking for my next role in CRM, email marketing, or marketing automation.<br>
+        If you think I'd be a good fit, I'd love to hear from you.
+      </p>
+      <a class="btn" href="mailto:yanina.trekhleb@gmail.com">Send me an email</a>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/yanina-trekhleb/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/YaninaTrekhleb" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <div class="footer-note">Currently in Sunnyvale, CA</div>
+    </footer>
+
+  </div>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navLinks.classList.toggle('open');
+    });
+
+    // Close nav on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Close nav on click outside
+    document.addEventListener('click', (e) => {
+      if (!navLinks.contains(e.target) && !navToggle.contains(e.target) && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        navToggle.classList.remove('active');
+      }
+    });
+
+    // Mobile testimonial carousel
+    const carousel = document.querySelector('.testimonials-scroll');
+    const cards = carousel.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.carousel-dot');
+    let currentSlide = 0;
+    let startX = 0;
+    let isMobile = () => window.innerWidth <= 600;
+
+    function goToSlide(index) {
+      currentSlide = index;
+      if (isMobile()) {
+        carousel.style.transform = `translateX(-${index * 100}%)`;
+      } else {
+        carousel.style.transform = '';
+      }
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goToSlide(i)));
+
+    // Swipe support
+    carousel.addEventListener('touchstart', (e) => {
+      if (!isMobile()) return;
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    carousel.addEventListener('touchend', (e) => {
+      if (!isMobile()) return;
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0 && currentSlide < cards.length - 1) goToSlide(currentSlide + 1);
+        else if (diff < 0 && currentSlide > 0) goToSlide(currentSlide - 1);
+      }
+    }, { passive: true });
+
+    // Auto-advance every 5s on mobile
+    let autoplay = setInterval(() => {
+      if (isMobile()) goToSlide((currentSlide + 1) % cards.length);
+    }, 5000);
+
+    carousel.addEventListener('touchstart', () => { clearInterval(autoplay); }, { passive: true });
+
+    // Reset carousel on resize
+    window.addEventListener('resize', () => {
+      if (!isMobile()) {
+        carousel.style.transform = '';
+        currentSlide = 0;
+        dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+      }
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
