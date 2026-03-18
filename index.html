@@ -395,11 +395,12 @@
       .testimonials-scroll {
         overflow: hidden; gap: 0; scroll-snap-type: none;
         position: relative;
-        transition: transform 0.4s var(--ease);
+        flex-wrap: nowrap;
       }
       .testimonial-card {
         min-width: 100%; max-width: 100%; padding: 22px;
         flex-shrink: 0;
+        transition: none;
       }
       .testimonial-card .quote { font-size: 14px; }
       .testimonial-card:hover { transform: none; box-shadow: none; }
@@ -651,11 +652,18 @@
     let isMobile = () => window.innerWidth <= 600;
 
     function goToSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= cards.length) index = cards.length - 1;
       currentSlide = index;
       if (isMobile()) {
-        carousel.style.transform = `translateX(-${index * 100}%)`;
+        const offset = -index * 100;
+        cards.forEach(card => {
+          card.style.transform = `translateX(${offset}%)`;
+        });
       } else {
-        carousel.style.transform = '';
+        cards.forEach(card => {
+          card.style.transform = '';
+        });
       }
       dots.forEach((d, i) => d.classList.toggle('active', i === index));
     }
@@ -687,9 +695,11 @@
     // Reset carousel on resize
     window.addEventListener('resize', () => {
       if (!isMobile()) {
-        carousel.style.transform = '';
+        cards.forEach(card => { card.style.transform = ''; });
         currentSlide = 0;
         dots.forEach((d, i) => d.classList.toggle('active', i === 0));
+      } else {
+        goToSlide(currentSlide);
       }
     });
 
